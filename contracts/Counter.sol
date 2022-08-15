@@ -9,7 +9,7 @@ contract Counter {
     constructor() {}
 
     function increment() public {
-        count += 2;
+        count += 3;
         emit CountIncremented(count);
     }
 }
