@@ -14,16 +14,16 @@ const config: HardhatUserConfig = {
   },
   networks: {
     goerli: {
-      url: process.env.GOERLI_NODE_URL,
+      url: process.env.GOERLI_NODE_URL || "",
       accounts: {
-        mnemonic: process.env.GOERLI_MNEMONIC
+        mnemonic: process.env.GOERLI_MNEMONIC || ""
       }
     },
     localhost: {
       live: false,
       saveDeployments: true,
       accounts: {
-        mnemonic: process.env.LOCALHOST_MNEMONIC
+        mnemonic: process.env.LOCALHOST_MNEMONIC || ""
       }
     }
   }
