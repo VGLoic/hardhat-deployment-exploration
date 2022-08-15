@@ -17,10 +17,12 @@ jobs:
       - run: npm install
       - run: npm run compile
       - run: npm run test
-  deploy-goerli:
+  deploy_goerli:
     needs: test
     runs-on: ubuntu-latest
     name: Goerli deployment
+    outputs:
+      commit_sha: ${{ steps.commit_deployment.outputs.commit_sha }}
     steps:
       - uses: actions/checkout@v2
       - name: Setup node
@@ -35,17 +37,20 @@ jobs:
           GOERLI_NODE_URL: ${{ secrets.GOERLI_NODE_URL }}
           GOERLI_MNEMONIC: ${{ secrets.GOERLI_MNEMONIC }}
       - name: Commit deployment
+        id: commit_deployment
         uses: EndBug/add-and-commit@v9
         with:
           default_author: github_actions
           message: 'Goerli deployment updated'
           add: 'deployments'
   release:
-    needs: deploy-goerli
+    needs: deploy_goerli
     runs-on: ubuntu-latest
     name: Release
     steps:
       - uses: actions/checkout@v2
+        with:
+          ref: ${{ needs.deploy_goerli.outputs.commit_sha }}
       - name: Setup node
         uses: actions/setup-node@v2
         with:
