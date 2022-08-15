@@ -17,7 +17,7 @@ jobs:
       - run: npm install
       - run: npm run compile
       - run: npm run test
-  deploy-goerli:
+  deploy_goerli:
     needs: test
     runs-on: ubuntu-latest
     name: Goerli deployment
@@ -46,6 +46,8 @@ jobs:
     name: Release
     steps:
       - uses: actions/checkout@v2
+        with:
+          ref: ${{ jobs.deploy_goerli.outputs.commit_sha }}
       - name: Setup node
         uses: actions/setup-node@v2
         with:
