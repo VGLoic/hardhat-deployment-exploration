@@ -23,7 +23,7 @@ const config: HardhatUserConfig = {
       live: false,
       saveDeployments: true,
       accounts: {
-        mnemonic: process.env.LOCALHOST_MNEMONIC
+        mnemonic: process.env.LOCALHOST_MNEMONIC || ""
       }
     }
   }
