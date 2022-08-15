@@ -20,8 +20,8 @@ describe("Counter", function () {
 
     await expect(counter.increment())
           .to.emit(counter, "CountIncremented")
-          .withArgs(1); // We accept any value as `when` arg
+          .withArgs(2); // We accept any value as `when` arg
 
-    expect(await counter.count()).to.equal(1);
+    expect(await counter.count()).to.equal(2);
   })
 });
