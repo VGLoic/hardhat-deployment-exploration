@@ -1,17 +1,39 @@
 {
   "name": "hardhat-deployment-exploration",
+  "version": "0.0.1-semantic-release",
+  "description": "Exploration for contract deployment packaging with Hardhat",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib",
+    "contracts"
+  ],
+  "author": "Loïc Vincent-Genod (https://github.com/VGLoic)",
+  "homepage": "https://github.com/VGLoic/hardhat-deployment-exploration",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VGLoic/hardhat-deployment-exploration.git"
+  },
+  "bugs": {
+    "url": "https://github.com/VGLoic/hardhat-deployment-exploration/issues"
+  },
   "scripts": {
     "compile": "hardhat compile",
     "test": "hardhat test",
     "node:local": "hardhat node",
     "deploy:local": "hardhat --network localhost deploy --export-all ./deployments/extract.json",
     "deploy:goerli": "hardhat --network goerli deploy --export-all ./deployments/extract.json",
+    "build": "hardhat compile && tsc --project tsconfig-publish.json",
     "cleanup": "rm -rf cache"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^1.0.2",
     "dotenv": "^16.0.1",
     "hardhat": "^2.10.1",
-    "hardhat-deploy": "^0.11.12"
+    "hardhat-deploy": "^0.11.12",
+    "semantic-release": "^19.0.3"
+  },
+  "dependencies": {
+    "contract-store": "^1.0.0-alpha.7"
   }
 }
