@@ -31,6 +31,9 @@ jobs:
       - run: npm install
       - run: npm run compile
       - run: npm run deploy:goerli
+        env:
+          GOERLI_NODE_URL: ${{ secrets.GOERLI_NODE_URL }}
+          GOERLI_MNEMONIC: ${{ secrets.GOERLI_MNEMONIC }}
       - name: Commit deployment
         uses: EndBug/add-and-commit@v9
         with:
