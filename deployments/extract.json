@@ -5,7 +5,7 @@
       "chainId": "5",
       "contracts": {
         "Counter": {
-          "address": "0xd591EA2D732EC3F8C46Cbd147ADcD297383045f5",
+          "address": "0x014492D58087F956e4264118D035cf31FEa32097",
           "abi": [
             {
               "inputs": [],
