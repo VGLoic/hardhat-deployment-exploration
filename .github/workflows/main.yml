@@ -41,7 +41,7 @@ jobs:
           message: 'Goerli deployment updated'
           add: 'deployments'
   release:
-    needs: test
+    needs: deploy-goerli
     runs-on: ubuntu-latest
     name: Release
     steps:
